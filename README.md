@@ -5,6 +5,7 @@ Youpez (youpez-admin) is a highly customizable, flexible NextGen Angular UI admi
 In Youpez we collected the best UI solutions/libraries for your next awesome admin project. It contains the current and future best practices from the frontend world.
 
 Motivation behind Youpez creating a futuristic and well usable **FREE** Admin application template which is different from other average templates.
+![localhost_4200_auth_modern_signin](https://user-images.githubusercontent.com/105137625/194603392-22e4d96f-6166-4008-a38a-ece8560cf627.png)
 
 ![preview](http://landing.youpez.flatedgethemes.com/static/mainpic-ceb50dc3ea0c04e923155fe38c8fafac.png)
 
