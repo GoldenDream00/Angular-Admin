@@ -1,0 +1,40 @@
+<div class="app-a-box app-scrollbar-fix">
+  <ng-scrollbar>
+    <div class="app-header app-header--carbon">
+      <div class="app-productive-heading-04">Typography</div>
+    </div>
+    <div fxLayout="row wrap" class="app-content app-content--carbon">
+
+      <div fxFlex="100%" fxFlex.gt-md="60%" class="app-cards-vertical-merge">
+        <ng-container *ngFor="let typo of typography">
+          <ng-container *ngIf="typo.section">
+            <div class="px-4 pt-4">
+              <ng-container *ngIf="typo.desc">
+                <div class="app-body-long-01 mb-6">
+                  {{typo.desc}}
+                </div>
+              </ng-container>
+              <div class="font-bold mb-2">{{typo.section}}</div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="!typo.section">
+
+            <div fxLayout="row wrap" fxLayoutAlign="start stretch" class="app-card">
+              <div fxFlex="70%">
+                <div class="app-card__content">
+                  <div [class]="typo.cssClass">{{typo.content}}</div>
+                </div>
+              </div>
+              <div fxFlex="30%" class="app-border-l">
+                <div class="p-4 app-code-01">{{typo.name}}</div>
+              </div>
+            </div>
+
+          </ng-container>
+
+        </ng-container>
+      </div>
+
+    </div>
+  </ng-scrollbar>
+</div>

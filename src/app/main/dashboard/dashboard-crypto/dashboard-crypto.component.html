@@ -1,0 +1,301 @@
+<youpez-sidenav-container panel="panel">
+  <youpez-sidenav
+    [breakpoint]="'md'"
+    [direction]="'right'"
+    [opened]="rightSidebarVisibility"
+    (visibleChange)="rightSidebarVisibility=$event"
+    [hoverAble]="true"
+    [mode]="'side'"
+    [toggleableBtn]="true"
+    initWidth="300">
+
+    <youpez-sidenav-container panel="panel">
+      <youpez-sidenav
+        [breakpoint]="'md'"
+        [direction]="'bottom'"
+        [opened]="true"
+        [hoverAble]="true"
+        [mode]="'side'"
+        [toggleableBtn]="true"
+        initWidth="570">
+        <div class="app-a-box app-bg-container app-scrollbar-fix">
+          <ng-scrollbar>
+            <div class="app-inner-content app-inner-content--default">
+              <div class="app-row app-row--center mb-4">
+                <div class="app-symbol app-symbol--default mr-2">
+                  <div class="app-symbol__label w-10 h-10">
+                    <span class="font-bold">BTC</span>
+                  </div>
+                </div>
+                <div>
+                  <div class="app-expressive-heading-02">BTCUSD</div>
+                  <div class="app-label-01">crypto | BITMARKET</div>
+                </div>
+              </div>
+
+              <div class="mb-1">
+                <span class="app-expressive-heading-04 mr-1">11437.0</span>
+                <span class="app-expressive-heading-02 mr-3">USD</span>
+                <span class="app-label-01 app-color-success">66.0 (0.58%)</span>
+              </div>
+
+              <div>
+                <span class="w-2 h-2 rounded-full inline-block app-bg-success mr-1"></span>
+                <span class="inline-block app-helper-text-01">Market open</span>
+              </div>
+
+              <div class="my-6">
+                <div class="flex justify-between app-helper-text-01 mb-1">
+                  <div>11364.9</div>
+                  <div>DAY'S RANGE</div>
+                  <div>11508.0</div>
+                </div>
+                <div class="app-progress">
+                  <div class="app-progress__bar app-bg-success" style="margin-left:20%;width:70%"></div>
+                </div>
+              </div>
+
+              <div class="my-6">
+                <div class="flex justify-between app-helper-text-01 mb-1">
+                  <div>4000.9</div>
+                  <div>52WK RANGE</div>
+                  <div>12490.0</div>
+                </div>
+                <div class="app-progress">
+                  <div class="app-progress__bar app-bg-success" style="margin-left:70%;width:5%"></div>
+                </div>
+              </div>
+
+              <div class="app-expressive-heading-01 mb-1">Performance</div>
+              <div fxLayout="row wrap" class="text-center">
+                <div fxFlex="33.33%">
+                  <div class="p-2 m-1 rounded app-bg-success-o-10 app-color-success">
+                    <div class="app-expressive-heading-01">0.12%</div>
+                    <div class="app-helper-text-01">1W</div>
+                  </div>
+                </div>
+                <div fxFlex="33.33%">
+                  <div class="p-2 m-1 rounded app-bg-success-o-20 app-color-success">
+                    <div class="app-expressive-heading-01">6.04%</div>
+                    <div class="app-helper-text-01">1M</div>
+                  </div>
+                </div>
+                <div fxFlex="33.33%">
+                  <div class="p-2 m-1 rounded app-bg-danger-o-30 app-color-danger">
+                    <div class="app-expressive-heading-01">-3.93%</div>
+                    <div class="app-helper-text-01">3M</div>
+                  </div>
+                </div>
+                <div fxFlex="33.33%">
+                  <div class="p-2 m-1 rounded app-bg-success-o-30 app-color-success">
+                    <div class="app-expressive-heading-01">22.59%</div>
+                    <div class="app-helper-text-01">6M</div>
+                  </div>
+                </div>
+                <div fxFlex="33.33%">
+                  <div class="p-2 m-1 rounded app-bg-success-o-50 app-color-success">
+                    <div class="app-expressive-heading-01">58.93%</div>
+                    <div class="app-helper-text-01">YTD</div>
+                  </div>
+                </div>
+                <div fxFlex="33.33%">
+                  <div class="p-2 m-1 rounded app-bg-success-o-30 app-color-success">
+                    <div class="app-expressive-heading-01">16.29%</div>
+                    <div class="app-helper-text-01">1Y</div>
+                  </div>
+                </div>
+              </div>
+              <div class="app-expressive-heading-01 mt-4">Recommendation</div>
+              <div class="overflow-hidden " style="height: 135px">
+                <div style="height: 250px" class="relative">
+                  <youpez-echarts-container>
+                    <youpez-echarts [options]="technicalChart" class="app-echarts-component"></youpez-echarts>
+                  </youpez-echarts-container>
+                </div>
+              </div>
+            </div>
+          </ng-scrollbar>
+        </div>
+      </youpez-sidenav>
+
+      <div fxFill fxLayout="column" class="app-bg-container relative">
+        <div class="app-header app-header--sm">
+          <div class="app-expressive-heading-02">Watchlist</div>
+
+          <div class="app_header__tools">
+            <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+              <svg class="bx--btn__icon" ibmIconAdd size="32"></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="app-list-header">
+          <div fxFlex fxLayout="row" class="app-expressive-heading-01">
+            <div fxFlex="40" class="">Symbol</div>
+            <div fxFlex="25" class="text-right">Last</div>
+            <div fxFlex="35" class="text-right">Chg</div>
+          </div>
+        </div>
+
+        <div fxFlex class="relative">
+          <div class="app-a-box app-bg-container app-scrollbar-fix">
+            <ng-scrollbar>
+              <div class="app-list app-list--hover app-list--select app-list--condensed">
+                <ng-container *ngFor="let watch of watchList">
+                  <div class="app-list__item" (click)="onSelect(watch[0])"
+                       [ngClass]="{'app-list__item--active':selectedWatch === watch[0]}">
+                    <div class="app-list__item__content">
+                      <div fxFlex fxLayout="row" fxLayoutAlign="center center">
+                        <div fxFlex="40" class="app-expressive-heading-01">{{watch[0]}}</div>
+                        <div fxFlex="25" class="app-helper-text-01 text-right">{{watch[1]}}</div>
+                        <ng-container *ngIf="watch[2] < 0">
+                          <div fxFlex="35" class="app-helper-text-01 text-right app-color-danger">
+                            <div class="flex justify-end items-center">
+                              {{watch[2]}}
+                              <youpez-ibm-icon iconName="arrowDown" iconSize="16" class="-mr-2 ml-1"></youpez-ibm-icon>
+                            </div>
+                          </div>
+                        </ng-container>
+                        <ng-container *ngIf="watch[2] >= 0">
+                          <div fxFlex="35" class="app-helper-text-01 text-right app-color-success">
+                            <div class="flex justify-end items-center">
+                              {{watch[2]}}
+                              <youpez-ibm-icon iconName="arrowUp" iconSize="16" class="-mr-2 ml-1"></youpez-ibm-icon>
+                            </div>
+                          </div>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+            </ng-scrollbar>
+          </div>
+        </div>
+      </div>
+
+
+    </youpez-sidenav-container>
+
+  </youpez-sidenav>
+
+  <youpez-sidenav-container panel="panel">
+    <youpez-sidenav
+      [breakpoint]="'md'"
+      [direction]="'bottom'"
+      [opened]="bottomSidebarVisibility"
+      (visibleChange)="bottomSidebarVisibility=$event"
+      [hoverAble]="true"
+      [mode]="'side'"
+      initWidth="370"
+      [toggleableBtn]="true"
+      [size]="'sideBar1'">
+      <div fxFill fxLayout="column" class="app-bg-container relative">
+
+        <ibm-tab-header-group class="app-ibm-tab-auto">
+          <ibm-tab-header>
+            Stock Viewer
+          </ibm-tab-header>
+          <ibm-tab-header>
+            Trading Options
+          </ibm-tab-header>
+          <ibm-tab-header>
+            Strategy Validation
+          </ibm-tab-header>
+          <ibm-tab-header>
+            Text Notes
+          </ibm-tab-header>
+          <ibm-tab-header>
+            Alert Management
+          </ibm-tab-header>
+        </ibm-tab-header-group>
+
+        <div class="absolute top-0 right-0">
+          <button ibmButton="ghost" size="sm" class="bx--btn--icon-only" (click)="onToggleBottom()">
+            <svg class="bx--btn__icon" ibmIconMinimize size="32"></svg>
+          </button>
+        </div>
+
+        <div class="p-2 flex">
+          <div class="app-ibm-btn-merge mr-2">
+            <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+              <svg class="bx--btn__icon" ibmIconRenew size="32"></svg>
+            </button>
+            <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+              <svg class="bx--btn__icon" ibmIconOverflowMenuVertical size="32"></svg>
+            </button>
+          </div>
+
+          <div class="mr-2" style="width:170px">
+            <ibm-search placeholder="Search..." size="sm" theme="light"></ibm-search>
+          </div>
+
+          <ibm-tag-filter
+            type="blue"
+            title="Filter"
+            closeButtonLabel="Clear"
+          >Fortune 500
+          </ibm-tag-filter>
+
+          <div class="flex flex-1 justify-end">
+            <div class="app-ibm-btn-merge mr-1">
+              <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+                <svg class="bx--btn__icon" ibmIconAlarm size="32"></svg>
+              </button>
+            </div>
+            <button ibmButton="tertiary" size="sm">
+              Filters
+              <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+            </button>
+          </div>
+        </div>
+
+        <div fxFlex fxFill class="relative">
+          <ng-container *ngIf="!loading">
+            <ag-grid-angular
+              class="app-ag-grid app-ag-grid--border-t"
+              [modules]="modules"
+              [gridOptions]="gridOptions">
+            </ag-grid-angular>
+          </ng-container>
+        </div>
+      </div>
+    </youpez-sidenav>
+
+    <div fxFill fxLayout="column" class="relative app-bg-container">
+
+      <youpez-header [bordered]="false">
+        <youpez-header-title>
+          Bitcoin / U.S. Dollar
+        </youpez-header-title>
+
+        <youpez-header-tools>
+          <button ibmButton="primary" size="sm" class="mr-1">
+            Buy
+            <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+          </button>
+          <button (click)="onToggleRightSidebar()" ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+            <svg class="bx--btn__icon" ibmIconOpenPanelRight size="20"></svg>
+          </button>
+        </youpez-header-tools>
+      </youpez-header>
+
+      <div fxFlex class="relative px-4 pb-4">
+        <div class="absolute top-0 left-0 ml-4 app-bg-container" style="top:-8px;left:-3px;z-index: 1">
+          <div class="">
+            <ibm-tag type="warm-gray">11452.0</ibm-tag>
+            <span>- </span>
+            <ibm-tag type="warm-gray">11453.0</ibm-tag>
+          </div>
+          <div class="app-helper-text-01 ml-2">
+            Vol <span class="font-bold ml-1">52.799K</span>
+          </div>
+        </div>
+        <youpez-echarts-container>
+          <youpez-echarts [options]="mainChart" [forceResize]="true" class="app-echarts-component"></youpez-echarts>
+        </youpez-echarts-container>
+      </div>
+    </div>
+  </youpez-sidenav-container>
+
+</youpez-sidenav-container>

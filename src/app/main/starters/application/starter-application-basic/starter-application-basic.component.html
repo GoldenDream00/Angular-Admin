@@ -1,0 +1,36 @@
+<youpez-sidenav-container panel="solid">
+  <youpez-sidenav
+    direction="right"
+    breakpoint="md"
+    [opened]="true"
+    hoverAble="true"
+    mode="side"
+    [toggleableBtn]="true"
+    size="custom1">
+    <div class="app-content app-content--default">
+      <div class="app-productive-heading-02">Resizable & hoverable</div>
+    </div>
+  </youpez-sidenav>
+  <youpez-header [bordered]="true">
+    <youpez-header-title>
+      Main header
+    </youpez-header-title>
+    <youpez-header-tools>
+      <button ibmButton="primary" size="sm" class="mr-1">
+        Button
+        <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+      </button>
+    </youpez-header-tools>
+  </youpez-header>
+  <youpez-sidenav
+    breakpoint="md"
+    [opened]="true"
+    hoverAble="true"
+    mode="side"
+    [toggleableBtn]="true"
+    size="custom1">
+    <div class="app-content app-content--default">
+      <div class="app-productive-heading-02">Resizable & hoverable</div>
+    </div>
+  </youpez-sidenav>
+</youpez-sidenav-container>

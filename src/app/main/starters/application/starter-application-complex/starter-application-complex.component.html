@@ -1,0 +1,76 @@
+<youpez-sidenav-container panel="panel">
+  <youpez-sidenav
+    [breakpoint]="'md'"
+    [direction]="'right'"
+    [opened]="true"
+    [hoverAble]="true"
+    [mode]="'side'"
+    [toggleableBtn]="true"
+    initWidth="300">
+
+    <youpez-sidenav-container panel="panel">
+      <youpez-sidenav
+        [breakpoint]="'md'"
+        [direction]="'bottom'"
+        [opened]="true"
+        [hoverAble]="true"
+        [mode]="'side'"
+        [toggleableBtn]="true"
+        initWidth="500">
+        <div fxFill fxLayout="column" class="app-bg-container relative">
+          <div class="app-header app-header--sm">
+            <div class="app-expressive-heading-02">Split bottom</div>
+          </div>
+        </div>
+      </youpez-sidenav>
+
+      <div fxFill fxLayout="column" class="app-bg-container relative">
+        <div class="app-header app-header--sm">
+          <div class="app-expressive-heading-02">Split top</div>
+        </div>
+        <div fxFlex class="relative">
+          <div class="app-a-box app-bg-container app-scrollbar-fix">
+            <ng-scrollbar>
+
+            </ng-scrollbar>
+          </div>
+        </div>
+      </div>
+
+    </youpez-sidenav-container>
+  </youpez-sidenav>
+
+  <youpez-sidenav-container panel="panel">
+    <youpez-sidenav
+      [breakpoint]="'md'"
+      [direction]="'bottom'"
+      [opened]="true"
+      [hoverAble]="true"
+      [mode]="'side'"
+      initWidth="370"
+      [toggleableBtn]="true"
+      [size]="'sideBar1'">
+      <div fxFill fxLayout="column" class="app-bg-container relative">
+        <div class="app-header app-header--sm">
+          <div class="app-expressive-heading-02">Bottom</div>
+        </div>
+      </div>
+    </youpez-sidenav>
+
+    <div fxFill fxLayout="column" class="relative">
+      <youpez-header [bordered]="true">
+        <youpez-header-title>
+          Main header
+        </youpez-header-title>
+        <youpez-header-tools>
+          <button ibmButton="primary" size="sm" class="mr-1">
+            Button
+            <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+          </button>
+        </youpez-header-tools>
+      </youpez-header>
+    </div>
+  </youpez-sidenav-container>
+
+</youpez-sidenav-container>
+

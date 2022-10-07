@@ -1,0 +1,51 @@
+<youpez-sidenav-container panel="panel">
+  <youpez-sidenav
+    [breakpoint]="'md'"
+    [direction]="'bottom'"
+    [opened]="true"
+    [hoverAble]="true"
+    [mode]="'side'"
+    initWidth="200"
+    [toggleableBtn]="true"
+    [size]="'sideBar1'">
+    <div fxFill fxLayout="column" class="app-bg-container relative">
+      <div class="app-header app-header--sm">
+        <div class="app-expressive-heading-02">Bottom</div>
+      </div>
+    </div>
+  </youpez-sidenav>
+  <div fxFill fxLayout="column" class="relative">
+    <youpez-header>
+      <youpez-header-title>
+        Main header
+      </youpez-header-title>
+      <youpez-header-tools>
+        <button ibmButton="primary" size="sm" class="mr-1">
+          Button
+          <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+        </button>
+      </youpez-header-tools>
+    </youpez-header>
+    <div fxFlex class="relative">
+      <youpez-sidenav-container panel="panel">
+        <youpez-sidenav
+          [breakpoint]="'md'"
+          [direction]="'right'"
+          [opened]="true"
+          [hoverAble]="true"
+          [mode]="'side'"
+          initWidth="200"
+          [toggleableBtn]="true"
+          [size]="'sideBar1'">
+          <div fxFill fxLayout="column" class="app-bg-container relative">
+            <div class="app-header app-header--sm">
+              <div class="app-expressive-heading-02">Right</div>
+            </div>
+          </div>
+        </youpez-sidenav>
+      </youpez-sidenav-container>
+    </div>
+  </div>
+</youpez-sidenav-container>
+
+

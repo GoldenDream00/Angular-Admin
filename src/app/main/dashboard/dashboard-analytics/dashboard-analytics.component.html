@@ -1,0 +1,443 @@
+<youpez-sidenav-container fxFill panel="panel">
+  <youpez-sidenav
+    [breakpoint]="'md'"
+    [direction]="'right'"
+    [opened]="rightSidebarVisibility"
+    (visibleChange)="rightSidebarVisibility=$event"
+    [hoverAble]="true"
+    [mode]="'side'"
+    [toggleableBtn]="true"
+    [size]="'sideBar1'">
+    <div fxFill fxLayout="column" class="relative app-bg-ui">
+      <div fxFlex class="relative">
+        <div class="app-a-box app-scrollbar-fix">
+          <ng-scrollbar track="vertical">
+            <div class="app-header app-header--sm">
+              <div class="app-expressive-heading-02">Latest users</div>
+              <div class="app-helper-text-01">production environment</div>
+              <div class="app_header__tools">
+                <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+                  <svg class="bx--btn__icon" ibmIconAdd size="32"></svg>
+                </button>
+              </div>
+            </div>
+            <div class="app-content app-content--sm ">
+              <ng-container *ngFor="let user of users">
+                <div class="app-row app-row-center truncate mb-2 relative">
+                  <div class="app-symbol mr-2">
+                    <div class="app-symbol__label w-8 h-8 rounded-full app-bg-info-lt-50 app-text-contrast">
+                      {{user.name[0]}}{{user.name[1]}}
+                    </div>
+                  </div>
+                  <div>
+                    <div class="app-productive-heading-01">{{user.name}}</div>
+                    <div class="app-helper-text-01">{{user.country}}</div>
+                  </div>
+                  <div class="absolute top-0 right-0">
+                    <button ibmButton="ghost" size="sm" class="bx--btn--icon-only">
+                      <svg class="bx--btn__icon" ibmIconTrashCan size="32"></svg>
+                    </button>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+            <div class="app-header app-header--sm">
+              <div class="app-expressive-heading-02">Conversions log</div>
+              <div class="app-helper-text-01">production environment</div>
+              <div class="app_header__tools">
+                <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+                  <svg class="bx--btn__icon" ibmIconAdd size="32"></svg>
+                </button>
+              </div>
+            </div>
+            <div class="app-content app-content--sm ">
+              <ng-container *ngFor="let log of logs">
+                <div class="app-code-01 truncate">
+                  [{{log.date}}]::{{log.name}}::{{log.country}}
+                </div>
+              </ng-container>
+            </div>
+          </ng-scrollbar>
+        </div>
+      </div>
+    </div>
+  </youpez-sidenav>
+  <div class="app-a-box app-scrollbar-fix">
+    <ng-scrollbar>
+
+      <youpez-header>
+        <youpez-header-title>
+          Platform Analytics
+        </youpez-header-title>
+
+        <youpez-header-tools>
+          <button ibmButton="primary" size="sm" class="mr-1">
+            Widget
+            <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+          </button>
+          <button (click)="onToggleRightSidebar()" ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+            <svg class="bx--btn__icon" ibmIconOpenPanelRight size="20"></svg>
+          </button>
+        </youpez-header-tools>
+      </youpez-header>
+
+      <div fxLayout="row wrap" class="app-card-row-holder">
+        <div fxFlex="100%" fxFlex.gt-lg="100%">
+          <div class="app-card">
+            <div class="app-card__header app-card__header--border">
+              <div class="app-row app-row--center">
+                <div class="app-symbol app-symbol--default mr-3 rounded">
+                  <div class="app-symbol__label w-12 h-10 app-expressive-heading-01 app-color-info">
+                    SaaS
+                  </div>
+                </div>
+                <div>
+                  <div class="app-expressive-heading-03">Campaign Analysis</div>
+                  <div class="app-label-01">Production environment of <span class="font-bold">US Region</span></div>
+                </div>
+                <div class="flex-1 flex justify-end" fxHide fxShow.gt-sm>
+                  <ibm-combo-box
+                    style="width:200px"
+                    [placeholder]="'Filter period...'"
+                    theme="light"
+                    [items]="[]"
+                    size="md"
+                    [appendInline]="false">
+                    <ibm-dropdown-list></ibm-dropdown-list>
+                  </ibm-combo-box>
+                </div>
+              </div>
+            </div>
+
+            <div fxLayout="row wrap">
+              <div fxFlex="100%" fxFlex.gt-lg="75%">
+                <ng-container *ngIf="!loading">
+                  <div class="app-card__content">
+                    <youpez-echarts-container>
+                      <youpez-echarts [options]="mainChartOpts" class="app-echarts-component"
+                                   style="height: 400px;"></youpez-echarts>
+                    </youpez-echarts-container>
+                  </div>
+                </ng-container>
+              </div>
+              <div fxFlex="100%" fxFlex.gt-lg="25%">
+                <div class="app-card__content">
+
+                  <div class="mb-6 mt-4">
+                    <div class="flex justify-between mb-1">
+                      <div class="app-productive-heading-01">NEW USERS</div>
+                      <div class="app-helper-text-01 text-muted">32% goal reached</div>
+                    </div>
+                    <div class="flex justify-between mb-4">
+                      <div class="app-productive-heading-03">11,122</div>
+                      <div class="app-helper-text-01 justify-center flex">21 100</div>
+                    </div>
+                    <div>
+                      <div class="app-progress app-progress--small">
+                        <div class="app-progress__bar app-bg-warning" style="width:32%"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mb-6">
+                    <div class="flex justify-between mb-1">
+                      <div class="app-productive-heading-01">PAGE CRT</div>
+                      <div class="app-helper-text-01 text-muted">66% goal reached</div>
+                    </div>
+                    <div class="flex justify-between mb-4">
+                      <div class="app-productive-heading-03">5,322</div>
+                      <div class="app-helper-text-01 justify-center flex">210 100</div>
+                    </div>
+                    <div>
+                      <div class="app-progress app-progress--small">
+                        <div class="app-progress__bar app-bg-success" style="width:66%"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mb-6">
+                    <div class="flex justify-between mb-1">
+                      <div class="app-productive-heading-01">CHURN USERS</div>
+                      <div class="app-helper-text-01 text-muted">11% of total</div>
+                    </div>
+                    <div class="flex justify-between mb-4 align-bottom">
+                      <div class="app-productive-heading-03">1,323</div>
+                      <div class="app-helper-text-01 justify-center flex">3,333</div>
+                    </div>
+                    <div>
+                      <div class="app-progress app-progress--small">
+                        <div class="app-progress__bar app-bg-success" style="width:11%"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <div class="app-productive-heading-01">CONVERSIONS</div>
+                      <div class="app-helper-text-01 text-muted">78% goal reached</div>
+                    </div>
+                    <div class="flex justify-between mb-4">
+                      <div class="app-productive-heading-03">78,976</div>
+                      <div class="app-helper-text-01 justify-center flex">12 200</div>
+                    </div>
+                    <div>
+                      <div class="app-progress app-progress--small">
+                        <div class="app-progress__bar app-bg-success" style="width:78%"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div fxFlex="100%" fxFlex.gt-lg="100%">
+                <div fxLayout="row wrap" class="app-card__blocks app-border-t">
+                  <div fxFlex="100%" fxFlex.gt-md="20%" class="app-card__block">
+                    <div class="flex justify-between">
+                      <div class="">
+                        <div>
+                          <span class="app-productive-heading-03 mr-2">$ 12,333</span>
+                          <span class="app-label-01 text-muted">+35%</span>
+                        </div>
+                        <div class="app-helper-text-01">TOTAL COST</div>
+                      </div>
+                      <youpez-ibm-icon iconName="arrowUp" iconSize="32" class="app-color-success mt-1"></youpez-ibm-icon>
+                    </div>
+                  </div>
+                  <div fxFlex="100%" fxFlex.gt-md="20%" class="app-card__block">
+                    <div class="flex justify-between">
+                      <div class="">
+                        <div>
+                          <span class="app-productive-heading-03 mr-2">122,333</span>
+                          <span class="app-label-01 text-muted">+12%</span>
+                        </div>
+                        <div class="app-helper-text-01">TOTAL USERS</div>
+                      </div>
+                      <youpez-ibm-icon iconName="arrowUp" iconSize="32" class="app-color-success mt-1"></youpez-ibm-icon>
+                    </div>
+                  </div>
+
+                  <div fxFlex="100%" fxFlex.gt-md="20%" class="app-card__block">
+                    <div class="flex justify-between">
+                      <div class="">
+                        <div>
+                          <span class="app-productive-heading-03 mr-2">1000ms</span>
+                          <span class="app-label-01 text-muted">-11%</span>
+                        </div>
+                        <div class="app-helper-text-01">AVG DELAY</div>
+                      </div>
+                      <youpez-ibm-icon iconName="arrowDown" iconSize="32" class="app-color-danger mt-1"></youpez-ibm-icon>
+                    </div>
+                  </div>
+
+                  <div fxFlex="100%" fxFlex.gt-md="20%" class="app-card__block">
+                    <div class="flex justify-between">
+                      <div class="">
+                        <div>
+                          <span class="app-productive-heading-03 mr-2">1,100ms</span>
+                          <span class="app-label-01 text-muted">+2%</span>
+                        </div>
+                        <div class="app-helper-text-01">MEDIAN WORKLOAD</div>
+                      </div>
+                      <youpez-ibm-icon iconName="arrowUp" iconSize="32" class="app-color-success mt-1"></youpez-ibm-icon>
+                    </div>
+                  </div>
+
+                  <div fxFlex="100%" fxFlex.gt-md="20%" class="app-card__block">
+                    <div class="flex justify-between">
+                      <div class="">
+                        <div>
+                          <span class="app-productive-heading-03 mr-2">$ 511</span>
+                          <span class="app-label-01 text-muted">+78%</span>
+                        </div>
+                        <div class="app-helper-text-01">AVG PURCHASE</div>
+                      </div>
+                      <youpez-ibm-icon iconName="arrowUp" iconSize="32" class="app-color-success mt-1"></youpez-ibm-icon>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div fxFlex="100%" fxFlex.gt-lg="25%">
+          <div class="app-card app-card--bt-success">
+            <div class="app-card__header">
+              <div class="app-row app-row--center mb-4">
+                <div class="app-expressive-heading-03">Visitors today</div>
+              </div>
+              <div class="mb-1">
+                <span class="app-productive-heading-04 mr-1">3 589</span>
+                <span class="app-helper-text-01">unique</span>
+              </div>
+              <div class="app-caption-01">EU/US and CTR</div>
+            </div>
+            <div class="">
+              <youpez-echarts-container>
+                <youpez-echarts [options]="miniChart1" class="app-echarts-component"
+                             style="height: 160px;"></youpez-echarts>
+              </youpez-echarts-container>
+            </div>
+            <div class="app-list">
+              <div class="app-caption-01 mx-2 mt-3">Top cities</div>
+
+              <div class="app-list__item">
+                <div class="mx-2 app-color-success">
+                  <youpez-ibm-icon iconName="arrowUp" iconSize="16"></youpez-ibm-icon>
+                </div>
+                <div class="app-list__item__content">
+                  New York
+                </div>
+                <div class="app-helper-text-01 pr-2">
+                  2233
+                </div>
+              </div>
+              <div class="app-list__item">
+                <div class="mx-2 app-color-danger">
+                  <youpez-ibm-icon iconName="arrowDown" iconSize="16"></youpez-ibm-icon>
+                </div>
+                <div class="app-list__item__content">
+                  Los Angeles
+                </div>
+                <div class="app-helper-text-01 pr-2">
+                  1234
+                </div>
+              </div>
+              <div class="app-list__item">
+                <div class="mx-2 app-color-success">
+                  <youpez-ibm-icon iconName="arrowUp" iconSize="16"></youpez-ibm-icon>
+                </div>
+                <div class="app-list__item__content">
+                  Berlin
+                </div>
+                <div class="app-helper-text-01 pr-2">
+                  533
+                </div>
+              </div>
+              <div class="app-list__item">
+                <div class="mx-2 app-color-success">
+                  <youpez-ibm-icon iconName="arrowUp" iconSize="16"></youpez-ibm-icon>
+                </div>
+                <div class="app-list__item__content">
+                  Malmö
+                </div>
+                <div class="app-helper-text-01 pr-2">
+                  119
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div fxFlex="100%" fxFlex.gt-lg="25%">
+          <div class="app-card">
+            <div class="app-card__header">
+              <div class="app-row app-row--center mb-4">
+                <div class="app-expressive-heading-03">Browsers distribution</div>
+              </div>
+              <div class="mb-1">
+                <span class="app-productive-heading-04 mr-1">66 456</span>
+                <span class="app-helper-text-01">+ 16% last week</span>
+              </div>
+              <div class="app-caption-01">EU/US region</div>
+            </div>
+            <div class="">
+              <youpez-echarts-container>
+                <youpez-echarts [options]="miniChart2" class="app-echarts-component"
+                             style="height: 160px;"></youpez-echarts>
+              </youpez-echarts-container>
+            </div>
+            <div class="app-list">
+              <div class="app-caption-01 mx-2 mt-3">Top versions</div>
+
+              <div class="app-list__item">
+                <div class="mx-2 app-color-success">
+                  <youpez-ibm-icon iconName="arrowUp" iconSize="16"></youpez-ibm-icon>
+                </div>
+                <div class="app-list__item__content">
+                  Firefox v81
+                </div>
+                <div class="app-helper-text-01 pr-2">
+                  3445
+                </div>
+              </div>
+              <div class="app-list__item">
+                <div class="mx-2 app-color-success">
+                  <youpez-ibm-icon iconName="arrowUp" iconSize="16"></youpez-ibm-icon>
+                </div>
+                <div class="app-list__item__content">
+                  Chrome v86
+                </div>
+                <div class="app-helper-text-01 pr-2">
+                  2435
+                </div>
+              </div>
+              <div class="app-list__item">
+                <div class="mx-2 app-color-success">
+                  <youpez-ibm-icon iconName="arrowUp" iconSize="16"></youpez-ibm-icon>
+                </div>
+                <div class="app-list__item__content">
+                  Safari v14
+                </div>
+                <div class="app-helper-text-01 pr-2">
+                  456
+                </div>
+              </div>
+              <div class="app-list__item">
+                <div class="mx-2 app-color-danger">
+                  <youpez-ibm-icon iconName="arrowDown" iconSize="16"></youpez-ibm-icon>
+                </div>
+                <div class="app-list__item__content">
+                  Edge v86
+                </div>
+                <div class="app-helper-text-01 pr-2">
+                  345
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div fxFlex="100%" fxFlex.gt-lg="50%">
+          <div class="app-card" fxFlex>
+            <div class="app-card__tool">
+              <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+                <svg class="bx--btn__icon" ibmIconRenew size="32"></svg>
+              </button>
+              <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+                <svg class="bx--btn__icon" ibmIconOverflowMenuVertical size="32"></svg>
+              </button>
+            </div>
+            <div class="app-card__header">
+              <div class="app-row app-row--center mb-4">
+                <div class="app-expressive-heading-03">Device sessions</div>
+              </div>
+              <div class="app-row app-row--center">
+                <div class="mr-8">
+                  <div class="app-caption-01">Desktop</div>
+                  <div class="app-productive-heading-03">49 535</div>
+                </div>
+
+                <div class="mr-8">
+                  <div class="app-caption-01">Mobile</div>
+                  <div class="app-productive-heading-03">11 223</div>
+                </div>
+                <div>
+                  <div class="app-caption-01">Other</div>
+                  <div class="app-productive-heading-03">9256</div>
+                </div>
+              </div>
+            </div>
+            <div class="app-card__content">
+              <youpez-echarts-container>
+                <youpez-echarts [options]="miniChart3" class="app-echarts-component"
+                             style="height: 300px;"></youpez-echarts>
+              </youpez-echarts-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-scrollbar>
+  </div>
+</youpez-sidenav-container>

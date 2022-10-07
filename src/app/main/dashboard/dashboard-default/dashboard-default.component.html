@@ -1,0 +1,535 @@
+<div class="app-a-box app-scrollbar-fix">
+  <ng-scrollbar>
+
+    <div fxLayout="row wrap" class="app-header app-header--hero">
+      <div class="app_header__tools">
+        <button ibmButton="primary" size="sm" class="mr-1">
+          Invoices
+        </button>
+        <button ibmButton="tertiary" size="sm" fxHide fxShow.gt-sm>
+          Schedule
+          <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+        </button>
+      </div>
+      <div fxFlex="100%" fxFlex.gt-sm="50%" class="relative z-10">
+        <div class="app-subtitle text-muted">
+          MAIN OVERVIEW
+        </div>
+        <div>
+          <span class="app-expressive-heading-06 mr-2">Youpez</span>
+          <span class="app-expressive-heading-03">[ the startup company platform ]</span>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row wrap" class="mx-4">
+      <div fxFlex="100%" fxFlex.gt-sm="50%" class="mt-4">
+        <ibm-combo-box
+          style="width:200px"
+          [placeholder]="'Filter group...'"
+          [items]="comboboxItems"
+          size="md"
+          [appendInline]="false">
+          <ibm-dropdown-list></ibm-dropdown-list>
+        </ibm-combo-box>
+      </div>
+      <div fxFlex="100%" fxFlex.gt-sm="50%" class="mt-4">
+        <div class="text-left lg:text-right">
+          <span class="app-label-01 mr-3">Date range</span>
+          <ibm-date-picker
+            class="app-inline-block"
+            size="md" range="true">
+          </ibm-date-picker>
+        </div>
+      </div>
+    </div>
+
+    <div fxLayout="row wrap" class="app-card-row-holder">
+      <div fxFlex="100%" fxFlex.gt-lg="60%">
+        <div fxFlex fxLayout="row wrap">
+          <div fxFlex="50%" fxFlex.gt-md="25%">
+            <div class="app-card">
+              <div class="app-card__header">
+                <div class="app-expressive-heading-03 mb-8">Reviews</div>
+                <div class="app-label-01">Current</div>
+                <div>
+                  <span class="app-expressive-heading-06 mr-2">1,231</span>
+                  <youpez-ibm-icon iconName="arrowUp" class="app-color-success"></youpez-ibm-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div fxFlex="50%" fxFlex.gt-md="25%">
+            <div class="app-card">
+              <div class="app-card__header">
+                <div class="app-expressive-heading-03 mb-8">Campaigns</div>
+                <div class="app-label-01">Current</div>
+                <div>
+                  <span class="app-expressive-heading-06 mr-2">566</span>
+                  <youpez-ibm-icon iconName="arrowUp" class="app-color-success"></youpez-ibm-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div fxFlex="50%" fxFlex.gt-md="25%">
+            <div class="app-card">
+              <div class="app-card__header">
+                <div class="app-expressive-heading-03 mb-8">Users</div>
+                <div class="app-label-01">Current</div>
+                <div>
+                  <span class="app-expressive-heading-06 mr-2">11,122</span>
+                  <youpez-ibm-icon iconName="arrowUp" class="app-color-success"></youpez-ibm-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div fxFlex="50%" fxFlex.gt-md="25%">
+            <div class="app-card app-card--bt-warning">
+              <div class="app-card__header">
+                <div class="app-expressive-heading-03 mb-8">Downloads</div>
+                <div class="app-label-01">Current</div>
+                <div>
+                  <span class="app-expressive-heading-06 mr-2">234,122</span>
+                  <youpez-ibm-icon iconName="arrowDown" class="app-color-danger"></youpez-ibm-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div fxFlex="50%" fxFlex.gt-md="25%">
+            <div class="app-card">
+              <div class="app-card__tool app-card__tool--sign">
+                <div class="app-card__tool__sign app-card__tool__sign--danger"></div>
+              </div>
+              <div class="app-card__header">
+                <div class="app-expressive-heading-02">Alerts</div>
+                <div class="app-label-01">Last 24hrs</div>
+              </div>
+              <youpez-echarts-container>
+                <youpez-echarts [options]="chartOptions3" class="app-echarts-component"
+                             style="height: 100px;"></youpez-echarts>
+              </youpez-echarts-container>
+            </div>
+          </div>
+          <div fxFlex="50%" fxFlex.gt-md="25%">
+            <div class="app-card">
+              <div class="app-card__tool app-card__tool--sign">
+                <div class="app-card__tool__sign app-card__tool__sign--success"></div>
+              </div>
+              <div class="app-card__header">
+                <div class="app-expressive-heading-02">Revenue</div>
+                <div class="app-label-01">Current month</div>
+              </div>
+              <youpez-echarts-container>
+                <youpez-echarts [options]="chartOptions" class="app-echarts-component"
+                             style="height: 100px;"></youpez-echarts>
+              </youpez-echarts-container>
+            </div>
+          </div>
+          <div fxFlex="50%" fxFlex.gt-md="25%">
+            <div class="app-card">
+              <div class="app-card__tool app-card__tool--sign">
+                <div class="app-card__tool__sign app-card__tool__sign--warning"></div>
+              </div>
+              <div class="app-card__header">
+                <div class="app-expressive-heading-02">Customers</div>
+                <div class="app-label-01">Last 6 month</div>
+              </div>
+              <youpez-echarts-container>
+                <youpez-echarts [options]="chartOptions4" class="app-echarts-component"
+                             style="height: 100px;"></youpez-echarts>
+              </youpez-echarts-container>
+            </div>
+          </div>
+          <div fxFlex="50%" fxFlex.gt-md="25%">
+            <div class="app-card">
+              <div class="app-card__tool app-card__tool--sign">
+                <div class="app-card__tool__sign app-card__tool__sign--success"></div>
+              </div>
+              <div class="app-card__header">
+                <div class="app-expressive-heading-02">Profit</div>
+                <div class="app-label-01">Last month</div>
+              </div>
+              <youpez-echarts-container>
+                <youpez-echarts [options]="chartOptions2" class="app-echarts-component"
+                             style="height: 100px;"></youpez-echarts>
+              </youpez-echarts-container>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div fxFlex="100%" fxFlex.gt-lg="40%">
+        <div class="app-card" fxFlex>
+          <div class="app-card__tool">
+            <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+              <svg class="bx--btn__icon" ibmIconRenew size="32"></svg>
+            </button>
+            <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+              <svg class="bx--btn__icon" ibmIconOverflowMenuVertical size="32"></svg>
+            </button>
+          </div>
+          <div class="app-card__header pb-0">
+            <div class="app-expressive-heading-03">App usage</div>
+            <div class="app-label-01">Working days</div>
+          </div>
+          <div class="app-card__content">
+            <youpez-echarts-container>
+              <youpez-echarts [options]="punchCardOpts" class="app-echarts-component" style="height: 210px;"></youpez-echarts>
+            </youpez-echarts-container>
+          </div>
+        </div>
+      </div>
+
+      <div fxFlex="100%">
+        <div fxLayout="row wrap">
+          <div fxFlex="100%" fxFlex.gt-md="50%" fxFlex.gt-lg="25%">
+            <div class="app-card app-card--bt-success">
+              <div class="app-card__header">
+                <div class="app-row app-row--center">
+                  <div class="app-symbol app-symbol--default mr-4 rounded">
+                    <div class="app-symbol__label w-20 h-20">
+                      <youpez-ibm-icon iconName="cloudDataOps" iconSize="32"></youpez-ibm-icon>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="app-expressive-heading-02">Monthly Subscription <br/> Based SaaS</div>
+                    <div class="app-label-01 mt-2">Due: 21 Dec 2020</div>
+                  </div>
+                </div>
+              </div>
+              <div class="app-list app-list--hover app-list--select">
+                <ng-container *ngFor="let sub of subscriptions">
+                  <div class="app-list__item" [ngClass]="{'app-color-success':sub.up,'app-color-danger':!sub.up}">
+                    <div class="app-list__item__prefix w-10 text-center">
+                      <ng-container *ngIf="sub.up">
+                        <youpez-ibm-icon iconName="arrowUp" iconSize="16"></youpez-ibm-icon>
+                      </ng-container>
+                      <ng-container *ngIf="!sub.up">
+                        <youpez-ibm-icon iconName="arrowDown" iconSize="16"></youpez-ibm-icon>
+                      </ng-container>
+                    </div>
+                    <div class="app-list__item__content">
+                      {{sub.month}}
+                    </div>
+                    <div class="app-expressive-heading-02 mr-1">{{sub.count}}$</div>
+                    <button ibmButton="ghost" size="sm" class="bx--btn--icon-only">
+                      <svg class="bx--btn__icon" ibmIconArrowRight size="32"></svg>
+                    </button>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+
+          <div fxFlex="100%" fxFlex.gt-md="50%" fxFlex.gt-lg="25%">
+            <div class="app-card" fxFlex>
+              <div class="app-card__header">
+                <div class="app-row app-row--center">
+                  <div>
+                    <div class="app-expressive-heading-02">Ongoing deployments</div>
+                    <div class="app-label-01">production</div>
+                  </div>
+                </div>
+              </div>
+              <div class="app-card__content">
+                <div class="mb-8">
+                  <div class="app-row app-row--center mb-4">
+                    <div class="app-symbol app-symbol--default mr-3 rounded">
+                      <div class="app-symbol__label w-10 h-10 app-expressive-heading-01">
+                        TS
+                      </div>
+                    </div>
+                    <div>
+                      <div class="app-productive-heading-02">Devops Team</div>
+                      <div class="app-body-long-02">Codename: the sprint sheet</div>
+                    </div>
+                  </div>
+                  <div>
+                    75% completed from total
+                  </div>
+                  <div>
+                    <div class="app-progress app-progress--small mt-4">
+                      <div class="app-progress__bar app-bg-success" style="width:75%"></div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="app-row app-row--center mb-4">
+                    <div class="app-symbol app-symbol--default mr-3 rounded">
+                      <div class="app-symbol__label w-10 h-10 app-expressive-heading-01">
+                        GS
+                      </div>
+                    </div>
+                    <div>
+
+                      <div class="app-productive-heading-02">Dev Team</div>
+                      <div class="app-body-long-02">Codename: get sheet done</div>
+                    </div>
+                  </div>
+                  <div>
+                    48% completed from total
+                  </div>
+                  <div>
+                    <div class="app-progress app-progress--small mt-4">
+                      <div class="app-progress__bar app-bg-warning" style="width:48%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div fxFlex="100%" fxFlex.gt-lg="50%">
+            <div class="app-card" fxFlex>
+              <div class="app-card__tool">
+                <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+                  <svg class="bx--btn__icon" ibmIconRenew size="32"></svg>
+                </button>
+                <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+                  <svg class="bx--btn__icon" ibmIconOverflowMenuVertical size="32"></svg>
+                </button>
+              </div>
+              <div class="app-card__header">
+                <div class="app-row app-row--center">
+                  <div>
+                    <div class="app-expressive-heading-02">Latest users</div>
+                    <div class="app-label-01 app-color-success">Today: +1,233</div>
+                  </div>
+                </div>
+              </div>
+              <div style="height:270px;" class="relative">
+                <app-dummy-table-rich size="sh" stickyHeader="true"
+                                      class="app-ibm-h-full app-ibm-table-header-fix"></app-dummy-table-rich>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div fxFlex="100%" fxFlex.gt-md="70%">
+        <div class="app-card">
+          <div class="app-card__tool">
+            <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+              <svg class="bx--btn__icon" ibmIconRenew size="32"></svg>
+            </button>
+            <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+              <svg class="bx--btn__icon" ibmIconOverflowMenuVertical size="32"></svg>
+            </button>
+          </div>
+          <div class="app-card__header">
+            <div class="app-row app-row--center">
+              <div class="app-symbol mr-3">
+                <div
+                  class="app-symbol__label w-10 h-10 app-expressive-heading-01 app-text-contrast app-bg-success-lt-50 rounded">
+                  K8S
+                </div>
+              </div>
+              <div>
+                <div class="app-expressive-heading-02">Kubernetes cluster</div>
+                <div class="app-label-01">Cloud environment</div>
+              </div>
+            </div>
+          </div>
+
+          <div fxLayout="row wrap" class="app-card__blocks app-border-t">
+            <div fxFlex="100%" fxFlex.gt-md="33.33%" class="app-card__block">
+              <div class="flex justify-between">
+                <div>
+                  <div class="app-productive-heading-03">Node #1</div>
+                  <div class="app-label-01">region: EU</div>
+                </div>
+                <div class="app-row app-row--center app-color-success">
+                  <span class="mr-1">Healthy</span>
+                  <youpez-ibm-icon iconName="checkMarkOutline" iconSize="32"></youpez-ibm-icon>
+                </div>
+
+              </div>
+
+              <div class="mt-5 mb-1">
+                <span class="app-productive-heading-05 mr-2">2,333</span>
+                <span class="app-productive-heading-02">users</span>
+              </div>
+              <div class="app-productive-heading-01 mb-2">Workload</div>
+              <youpez-echarts-container>
+                <youpez-echarts [options]="gaugeOpts" class="app-echarts-component" style="height: 240px;"></youpez-echarts>
+              </youpez-echarts-container>
+              <div class="">
+                <div fxLayout="row wrap" class="text-center">
+                  <div fxFlex="50%">
+                    <div class="app-label-01">Volume</div>
+                    <div class="app-productive-heading-03">6.36 TB</div>
+                    <div class="app-productive-heading-02">19%</div>
+                  </div>
+                  <div fxFlex="50%">
+                    <div class="app-label-01">Volume</div>
+                    <div class="app-productive-heading-03">5.17 TB</div>
+                    <div class="app-productive-heading-02">59%</div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center mt-4">
+                <button ibmButton="tertiary" size="sm">
+                  SSH
+                  <svg class="bx--btn__icon" ibmIconArrowRight size="20"></svg>
+                </button>
+              </div>
+            </div>
+            <div fxFlex="100%" fxFlex.gt-md="33.33%" class="app-card__block">
+              <div class="flex justify-between">
+                <div>
+                  <div class="app-productive-heading-03">Node #2</div>
+                  <div class="app-label-01">region: EU</div>
+                </div>
+                <div class="app-row app-row--center app-color-success">
+                  <span class="mr-1">Healthy</span>
+                  <youpez-ibm-icon iconName="checkMarkOutline" iconSize="32"></youpez-ibm-icon>
+                </div>
+
+              </div>
+
+              <div class="mt-5 mb-1">
+                <span class="app-productive-heading-05 mr-2">1,133</span>
+                <span class="app-productive-heading-02">users</span>
+              </div>
+              <div class="app-productive-heading-01 mb-2">Workload</div>
+              <youpez-echarts-container>
+                <youpez-echarts [options]="gaugeOpts2" class="app-echarts-component" style="height: 240px;"></youpez-echarts>
+              </youpez-echarts-container>
+              <div class="">
+                <div fxLayout="row wrap" class="text-center">
+                  <div fxFlex="50%">
+                    <div class="app-label-01">Volume</div>
+                    <div class="app-productive-heading-03">9.37 TB</div>
+                    <div class="app-productive-heading-02">31%</div>
+                  </div>
+                  <div fxFlex="50%">
+                    <div class="app-label-01">Volume</div>
+                    <div class="app-productive-heading-03">0.37 TB</div>
+                    <div class="app-productive-heading-02">11%</div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center mt-4">
+                <button ibmButton="tertiary" size="sm">
+                  SSH
+                  <svg class="bx--btn__icon" ibmIconArrowRight size="20"></svg>
+                </button>
+              </div>
+            </div>
+            <div fxFlex="100%" fxFlex.gt-md="33.33%" class="app-card__block">
+              <div class="flex justify-between">
+                <div>
+                  <div class="app-productive-heading-03">Node #3</div>
+                  <div class="app-label-01">region: EU</div>
+                </div>
+                <div class="app-row app-row--center app-color-success">
+                  <span class="mr-1">Healthy</span>
+                  <youpez-ibm-icon iconName="checkMarkOutline" iconSize="32"></youpez-ibm-icon>
+                </div>
+              </div>
+              <div class="mt-5 mb-1">
+                <span class="app-productive-heading-05 mr-2">4,105</span>
+                <span class="app-productive-heading-02">users</span>
+              </div>
+              <div class="app-productive-heading-01 mb-2">Workload</div>
+              <youpez-echarts-container>
+                <youpez-echarts [options]="gaugeOpts3" class="app-echarts-component" style="height: 240px;"></youpez-echarts>
+              </youpez-echarts-container>
+              <div class="">
+                <div fxLayout="row wrap" class="text-center">
+                  <div fxFlex="50%">
+                    <div class="app-label-01">Volume</div>
+                    <div class="app-productive-heading-03">2.37 TB</div>
+                    <div class="app-productive-heading-02">67%</div>
+                  </div>
+                  <div fxFlex="50%">
+                    <div class="app-label-01">Volume</div>
+                    <div class="app-productive-heading-03">1.17 TB</div>
+                    <div class="app-productive-heading-02">55%</div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center mt-4">
+                <button ibmButton="tertiary" size="sm">
+                  SSH
+                  <svg class="bx--btn__icon" ibmIconArrowRight size="20"></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div fxFlex="100%" fxFlex.gt-md="30%" fxLayout="column">
+
+        <div class="app-card">
+          <div class="">
+            <ibm-tabs>
+              <ibm-tab heading="EU Region">
+                <div class="app-card__content ">
+                  <div class="app-row app-row--center mb-4">
+                    <div class="mr-8">
+                      <div class="app-expressive-heading-01">VIEWS</div>
+                      <div class="app-expressive-heading-03">1,345</div>
+                    </div>
+                    <div class="mr-8">
+                      <div class="app-expressive-heading-01">TODAY</div>
+                      <div class="app-expressive-heading-03">67</div>
+                    </div>
+                    <div>
+                      <div class="app-expressive-heading-01">WEEK</div>
+                      <div class="app-expressive-heading-03">567</div>
+                    </div>
+                  </div>
+                  <div>
+                    <youpez-echarts-container>
+                      <youpez-echarts [options]="realtimeOpts" class="app-echarts-component"
+                                   style="height: 130px;"></youpez-echarts>
+                    </youpez-echarts-container>
+                  </div>
+                </div>
+              </ibm-tab>
+              <ibm-tab heading="US Region">
+                <div class="app-card__content ">
+                  <div class="app-row app-row--center mb-4">
+                    <div class="mr-8">
+                      <div class="app-expressive-heading-01">VIEWS</div>
+                      <div class="app-expressive-heading-03">9,345</div>
+                    </div>
+                    <div class="mr-8">
+                      <div class="app-expressive-heading-01">TODAY</div>
+                      <div class="app-expressive-heading-03">134</div>
+                    </div>
+                    <div>
+                      <div class="app-expressive-heading-01">WEEK</div>
+                      <div class="app-expressive-heading-03">1566</div>
+                    </div>
+                  </div>
+                  <div>
+                    <youpez-echarts-container>
+                      <youpez-echarts [options]="realtimeOpts" class="app-echarts-component"
+                                   style="height: 130px;"></youpez-echarts>
+                    </youpez-echarts-container>
+                  </div>
+                </div>
+              </ibm-tab>
+            </ibm-tabs>
+          </div>
+        </div>
+
+        <div class="app-card app-card--bt-danger">
+          <div class="app-card__header">
+            <div class="app-expressive-heading-02">Campaign goal distribution</div>
+            <div class="app-label-01">last 6 days</div>
+          </div>
+          <div>
+            <youpez-echarts-container>
+              <youpez-echarts [options]="themeRiverOpts" class="app-echarts-component"
+                           style="height: 240px;"></youpez-echarts>
+            </youpez-echarts-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-scrollbar>
+</div>
